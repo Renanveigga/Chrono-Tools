@@ -1,35 +1,35 @@
-# ⏱️ Chrono Tools
+ # ⏱️ Chrono Tools
 
-**Chrono Tools** é uma aplicação web simples feita com HTML, CSS e JavaScript que oferece duas funcionalidades principais:
+**Chrono Tools** é uma aplicação web feita com HTML, CSS e JavaScript que combina dois utilitários de medição de tempo:
 
-- **Temporizador (Timer)** com entrada de horas, minutos e segundos
+- **Temporizador (Timer)** com entrada personalizada de horas, minutos e segundos
 - **Cronômetro (Stopwatch)** com controle de início, pausa e reset
 
-Nos últimos 10 segundos, o temporizador ativa um efeito visual para destacar que o tempo está acabando.
+Nos últimos 10 segundos do Timer, um alerta visual (efeito de piscar) destaca o fim iminente do tempo.
 
 ---
-
- 
 
 ## * Funcionalidades
 
-- ⏳ Temporizador com entrada de tempo personalizada
-- 🕐 Cronômetro (em desenvolvimento)
-- ✨ Animação visual de "alerta" nos últimos segundos
-- 💡 Interface limpa e responsiva
-- 🧪 Código modular e fácil de adaptar
+- ⏳ **Temporizador com entrada personalizada**
+- 🕐 **Cronômetro com controle completo**
+- 🔁 Alternância entre Timer e Stopwatch com um clique
+- 🚨 Efeito de alerta visual nos últimos 10 segundos do Timer
+- 📋 Histórico de até 16 registros para cada modo (com opção de limpar)
+- 🧼 Interface responsiva, limpa e acessível
+- 🧩 Código modular e fácil de adaptar/extender
 
 ---
 
-## * Tecnologias utilizadas
+## 🛠️ Tecnologias utilizadas
 
-- HTML5
-- CSS3 (incluindo animações)
-- JavaScript (DOM e lógica de tempo)
+- **HTML5**
+- **CSS3** (com transições e animações)
+- **JavaScript** (DOM, lógica de tempo e controle de estados)
 
 ---
 
-## 📂 Como usar
+## 🚀 Como usar
 
 1. Clone este repositório:
    ```bash
