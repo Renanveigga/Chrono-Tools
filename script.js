@@ -1,14 +1,14 @@
+// Trocar seções
+function showSection(name) {
+  document.getElementById('timerSection').style.display = name === 'timer' ? 'block' : 'none';
+  document.getElementById('stopwatchSection').style.display = name === 'stopwatch' ? 'block' : 'none';
+}
+
+/* ===== TIMER ===== */
+
 let timer;
 let totalSeconds = 0;
 let isRunning = false;
-
-const botao = document.querySelector('.button-edit');
-const inputs = document.querySelector('.inputs');
-
-botao.addEventListener('click', () => {
-  inputs.classList.toggle('ativo');
-  botao.classList.toggle('ativo');
-});
 
 function startTimer() {
   if (isRunning) return;
@@ -61,3 +61,107 @@ function updateDisplay() {
   const secs = String(totalSeconds % 60).padStart(2, '0');
   document.getElementById('timer').textContent = `${hrs}:${mins}:${secs}`;
 }
+
+/* ===== STOPWATCH ===== */
+let stopwatch = 0;
+let stopwatchRunning = false;
+let stopwatchInterval;
+let stopwatchHistory = [];
+
+function startStopwatch() {
+  if (stopwatchRunning) return;
+
+  stopwatchRunning = true;
+  stopwatchInterval = setInterval(() => {
+    stopwatch++;
+    updateStopwatchDisplay();
+  }, 1000);
+}
+
+function pauseStopwatch() {
+  clearInterval(stopwatchInterval);
+  stopwatchRunning = false;
+  if (stopwatch > 0) {
+    const time = formatTime(stopwatch);
+    stopwatchHistory.push(time);
+    updateList(stopwatchHistory, 'stopwatchHistory');
+  }
+}
+
+function resetStopwatch() {
+  clearInterval(stopwatchInterval);
+  stopwatchRunning = false;
+  stopwatch = 0;
+  updateStopwatchDisplay();
+}
+
+function updateStopwatchDisplay() {
+  document.getElementById('stopwatchDisplay').textContent = formatTime(stopwatch);
+}
+
+/* ===== UTILS ===== */
+function formatTime(seconds) {
+  const hrs = String(Math.floor(seconds / 3600)).padStart(2, '0');
+  const mins = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
+  const secs = String(seconds % 60).padStart(2, '0');
+  return `${hrs}:${mins}:${secs}`;
+}
+
+function updateList(array, elementId) {
+  const ul = document.getElementById(elementId);
+  ul.innerHTML = '';
+  array.forEach((time, i) => {
+    const li = document.createElement('li');
+    li.textContent = `#${i + 1}: ${time}`;
+    ul.appendChild(li);
+  });
+}
+
+function clearHistory(type) {
+  if (type === 'timer') {
+    timerHistory = [];
+    updateList(timerHistory, 'timerHistory');
+  } else if (type === 'stopwatch') {
+    stopwatchHistory = [];
+    updateList(stopwatchHistory, 'stopwatchHistory');
+  }
+}
+
+function pauseStopwatch() {
+  clearInterval(stopwatchInterval);
+  stopwatchRunning = false;
+
+  if (stopwatch > 0) {
+    const time = formatTime(stopwatch);
+
+    if (stopwatchHistory.length >= 16) {
+      stopwatchHistory.shift(); // remove o mais antigo
+    }
+
+    stopwatchHistory.push(time);
+    updateList(stopwatchHistory, 'stopwatchHistory');
+  }
+}
+
+
+/* ===== OTHERS ===== */
+
+const botao = document.querySelector('.botao-menu')
+const menuLateral = document.querySelector('.menu-lateral')
+const background = document.querySelector('.background')
+
+botao.addEventListener('click', () => {
+    menuLateral.classList.toggle('ativo')
+    botao.classList.toggle('ativo')
+    background.classList.toggle('ativo')
+     
+})
+
+ 
+const button = document.querySelector('.button-edit');
+const inputs = document.querySelector('.inputs');
+
+button.addEventListener('click', () => {
+  inputs.classList.toggle('ativo');
+  button.classList.toggle('ativo');
+});
