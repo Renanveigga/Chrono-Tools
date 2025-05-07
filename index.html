@@ -50,11 +50,11 @@
 
 
 
-    <div class="btn-group">
+    <div class="btn-group" id="btndrop">
         <button type="button" class="btn btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
 
         </button>
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu" >
             <li><button class="dropdown-item" onclick="showSection('timer')">Timer</button></li>
             <li><button class="dropdown-item" onclick="showSection('stopwatch')">StopWatch</button></li>
         </ul>
@@ -65,13 +65,17 @@
         <div id="stopwatchSection" class="section" style="display: none;">
 
             <h1 id="stopwatchDisplay" class="numbers">00:00:00</h1>
-            <div class="historic">
-                <h3>Histórico Stopwatch</h3>
-                <ul id="stopwatchHistory"></ul>
 
+            <button class="button-aside"><</button>
+            <div class="historic-aside">
+                <div class="historic">
+                    <h3>Histórico Stopwatch</h3>
+                    <ul id="stopwatchHistory"></ul>
+                    <div class="background"></div>
+                </div>
+                <button onclick="clearHistory('stopwatch')" class="clear-history"><i class="fa-solid fa-trash"></i></button>
             </div>
-            <button onclick="clearHistory('stopwatch')" class="clear-history"><i class="fa-solid fa-trash"></i></button>
-            <div class="buttons-content">
+            <div class="buttons-content-sw">
                 <button onclick="startStopwatch()"><i class="fa-solid fa-play"></i></button>
                 <button onclick="pauseStopwatch()"><i class="fa-solid fa-pause"></i></button>
                 <button onclick="resetStopwatch()"><i class="fa-solid fa-rotate-left"></i></button>

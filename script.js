@@ -134,7 +134,7 @@ function pauseStopwatch() {
   if (stopwatch > 0) {
     const time = formatTime(stopwatch);
 
-    if (stopwatchHistory.length >= 16) {
+    if (stopwatchHistory.length >= 15) {
       stopwatchHistory.shift(); // remove o mais antigo
     }
 
@@ -157,6 +157,16 @@ botao.addEventListener('click', () => {
      
 })
 
+const btn = document.querySelector('.button-aside')
+const menuaside = document.querySelector('.historic-aside')
+const trashbtn = document.querySelector('.clear-history')
+
+btn.addEventListener('click', () => {
+    menuaside.classList.toggle('ativo')
+    btn.classList.toggle('ativo')
+    trashbtn.classList.toggle('ativo')
+})
+ 
  
 const button = document.querySelector('.button-edit');
 const inputs = document.querySelector('.inputs');
