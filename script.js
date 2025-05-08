@@ -1,8 +1,23 @@
 // Trocar seções
-function showSection(name) {
-  document.getElementById('timerSection').style.display = name === 'timer' ? 'block' : 'none';
-  document.getElementById('stopwatchSection').style.display = name === 'stopwatch' ? 'block' : 'none';
+const toggleButtons = document.querySelectorAll('.toggleBtn');
+const timerSection = document.getElementById('timerSection');
+const stopwatchSection = document.getElementById('stopwatchSection');
+
+let modoAtual = 'timer';
+
+function toggleModo() {
+  if (modoAtual === 'timer') {
+    timerSection.style.display = 'none';
+    stopwatchSection.style.display = 'block';
+    modoAtual = 'stopwatch';
+  } else {
+    timerSection.style.display = 'block';
+    stopwatchSection.style.display = 'none';
+    modoAtual = 'timer';
+  }
 }
+
+toggleButtons.forEach(btn => btn.addEventListener('click', toggleModo));
 
 /* ===== TIMER ===== */
 
@@ -99,6 +114,18 @@ function updateStopwatchDisplay() {
   document.getElementById('stopwatchDisplay').textContent = formatTime(stopwatch);
 }
 
+document.getElementById('mostrarHistorico').addEventListener('click', () => {
+  const todosTempos = [...stopwatchHistory]; // ou timerHistory se quiser o do timer
+  if (todosTempos.length === 0) {
+    alert("Nenhum histórico disponível.");
+    return;
+  }
+
+  const listaFormatada = todosTempos.map((t, i) => `#${i + 1}: ${t}`).join("\n");
+  alert("Histórico:\n" + listaFormatada);
+});
+
+
 /* ===== UTILS ===== */
 function formatTime(seconds) {
   const hrs = String(Math.floor(seconds / 3600)).padStart(2, '0');
@@ -166,6 +193,9 @@ btn.addEventListener('click', () => {
     btn.classList.toggle('ativo')
     trashbtn.classList.toggle('ativo')
 })
+
+
+
  
  
 const button = document.querySelector('.button-edit');

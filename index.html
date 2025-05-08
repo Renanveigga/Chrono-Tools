@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="alarm-clock_15092469.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>Timer</title>
+    <title>Timer & StopWatch</title>
 </head>
 
 <body>
@@ -22,12 +23,22 @@
         <nav class="menu-lateral">
             <ul>
                 <li>
-                    <a href="#"><i class="fa-solid fa-house"></i>
+                  <h1><i class="fa-solid fa-house"></i>
                         Histórico Stopwatch
-                    </a>
+                    </h1>
+                </li>
+                <li>
+                    <button id="mostrarHistorico" class="botao-historico">
+                        <h1><i class="fa-solid fa-clock"></i>Histórico</h1>
+                    </button>
                 </li>
             </ul>
-
+           
+            <blockquote>
+                <p>"O tempo é <span>gratuito</span>, mas é <span>precioso</span>. Você não pode possuí-lo, mas pode <span>usá-lo</span>. Você não pode guardá-lo, mas pode <span>gastá-lo</span>."</p>
+                <footer>— <cite>Harvey Mackay</cite></footer>
+              </blockquote>
+                
         </nav>
         <div class="background"></div>
     </div>
@@ -44,23 +55,10 @@
             <button onclick="pauseTimer()"><i class="fa-solid fa-pause"></i></button>
             <button onclick="resetTimer()"><i class="fa-solid fa-rotate-left"></i></button>
             <button onclick="editTimer()" class="button-edit"><i class="fa-solid fa-pen"></i></button>
-
+            <button class="toggleBtn"><i class="fa-solid fa-repeat"></i></button>
         </div>
     </div>
-
-
-
-    <div class="btn-group" id="btndrop">
-        <button type="button" class="btn btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-
-        </button>
-        <ul class="dropdown-menu" >
-            <li><button class="dropdown-item" onclick="showSection('timer')">Timer</button></li>
-            <li><button class="dropdown-item" onclick="showSection('stopwatch')">StopWatch</button></li>
-        </ul>
-    </div>
     
-
     <div class="stopwatch">
         <div id="stopwatchSection" class="section" style="display: none;">
 
@@ -79,6 +77,7 @@
                 <button onclick="startStopwatch()"><i class="fa-solid fa-play"></i></button>
                 <button onclick="pauseStopwatch()"><i class="fa-solid fa-pause"></i></button>
                 <button onclick="resetStopwatch()"><i class="fa-solid fa-rotate-left"></i></button>
+                <button  class="toggleBtn"><i class="fa-solid fa-repeat"></i></button>
             </div>
         </div>
 

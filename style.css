@@ -62,6 +62,7 @@ body {
     position: absolute;
     top: 60%;
     left: 42%;
+   
 }
 
 .buttons-content  button {
@@ -101,10 +102,8 @@ body {
 .buttons-content-sw {
     position: absolute;
     top: 60%;
-    left: 45%;
+    left: 43.5%;
 }
-
-
 
 .buttons-content-sw button {
     height: 5vh;
@@ -115,9 +114,8 @@ body {
     align-items: center;
 }
 
-
-.drop-down {
-    z-index: 2;
+.buttons-content-sw button:hover {
+    opacity: 0.6;
 }
 
 .button-aside {
@@ -126,10 +124,10 @@ body {
     top: 45%;
     transform: translateX(-50%);
     z-index: 6;
-    background-color: rgb(0, 255, 170);
-    color: #000000;
-    border: none;
-    height: 11vh;
+    background-color: transparent;
+    color: #ecf0f1;
+    border: 2px solid rgb(0, 255, 170);
+    height: 15vh;
     width: 2vw;
     border-radius: 20px;
     transition:  all 0.5s ease;
@@ -137,9 +135,9 @@ body {
 }
 
 .button-aside:hover {
-    background-color: transparent;
+    background-color: rgb(0, 255, 170);
     color: #ecf0f1;
-    border: 2px solid rgb(0, 255, 170);
+    border: 2px solid black;
     transition: 0.5s;
 }
 
@@ -210,6 +208,7 @@ body {
     100% { background-color: rgb(0, 116, 87); }
   }
 
+  
 .nav-bar {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     transition: background-color 0.5s ease;
@@ -241,7 +240,7 @@ body {
     padding: 15px 30px;
 }
 
-.menu-lateral ul li a {
+.menu-lateral ul li h1 {
     text-decoration: none;
     color: var(--text-color);
     font-size: 18px;
@@ -250,7 +249,7 @@ body {
     gap: 10px;
 }
 
-.menu-lateral ul li a i {
+.menu-lateral ul li h1 i {
     font-size: 24px;
 }
 
@@ -258,9 +257,17 @@ body {
     background-color: var(--secondary-color);
 }
 
-.menu-lateral ul li a i:hover {
+.menu-lateral ul li h1 i:hover {
     transform: translateX(5px) rotate(5deg);
 }
+
+.botao-historico {
+    font-size: 24px;
+    border: none;
+    background: none;
+    color: #ecf0f1;
+}
+
 
 .botao-menu {
     background-color: var(--primary-color);
@@ -302,4 +309,15 @@ body {
     visibility: visible;
 }
 
+blockquote {
+    position: absolute;
+    color: #ecf0f1;
+    font-size: 15px;
+    top: 70%;
+    margin: 0 20px 10px 20px;
+}
+
+blockquote span {
+    color: rgb(0, 255, 170);
+}
  
